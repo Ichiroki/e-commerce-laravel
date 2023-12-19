@@ -4,6 +4,8 @@ use App\Http\Controllers\LogoutController;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
 use App\Livewire\Home;
+use App\Livewire\Profile\Index as ProfileIndex;
+use App\Livewire\Profile\Setting;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +25,12 @@ Route::middleware('auth')->prefix('/')->group(function () {
     });
 
     Route::get('logout', LogoutController::class)->name('logout');
+
+    Route::prefix('profile')->group(function () {
+        Route::get('/', ProfileIndex::class)->name('profile');
+
+        Route::get('/setting', Setting::class)->name('setting');
+    });
 });
 
 Route::middleware('guest')->group(function () {
