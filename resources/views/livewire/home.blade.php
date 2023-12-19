@@ -1,3 +1,4 @@
 <div>
-   <x-banner/>
+    <x-banner />
+    <x-product />
 </div>
